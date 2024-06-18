@@ -1,0 +1,98 @@
+nameSystem = "auth"
+version = "1.0.0"
+
+[server]
+enabled = true
+port = 8082
+# readTimeout = "10s"
+# writeTimeout = "10s"
+# idleTimeout = "10s"
+# maxHeaderBytes = 1
+# maxBodyBytes = 1048576
+# cors = true
+# corsAllowOrigins = ["*"]
+# corsAllowMethods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+# corsAllowHeaders = ["Origin", "Authorization", "Content-Type"]
+# corsAllowCredentials = true
+# corsMaxAge = "12h"
+# corsOptionsPassthrough = true
+# logLevel = "debug"
+# logFile = "./logs/server.log"
+
+
+# [log]
+# enabled = true
+# level = "debug"
+# filePath = "./logs/system.log"
+# fileMaxSize = 10
+# fileMaxBackups = 10
+# fileMaxAge = 10
+# compress = false
+# format = "json" # text, json
+
+
+# [auth]
+# enabled = true 
+# secret = "8N3l9vcgzCbTBlhe0crcgZkoPPlFt1IISewmX2kgIMg="
+# tokenDuration="1h" # 1h
+# refreshTokenDuration="24h" # 24h
+# strategy = "jwt" # jwt, session
+# authenticator = "database" # database, ldap, oauth2
+# loginPath = "/login"
+# logoutPath = "/logout"
+# refreshTokenPath = "/refresh"
+# registerPath = "/register"
+# changePasswordPath = "/change-password"
+# resetPasswordPath = "/reset-password"
+# forgotPasswordPath = "/forgot-password"
+# verifyEmailPath = "/verify-email"
+# verifyPhonePath = "/verify-phone"
+# verifyPath = "/verify"
+# unauthorizedPath = "/unauthorized"
+# notFoundPath = "/not-found"
+# loginRedirect = "/home"
+# logoutRedirect = "/login"
+# logLevel = "debug"
+# logFile = "./logs/auth.log"
+# logQueries = true
+
+
+# [database]
+# enabled = true
+# driver = "sqlite"
+# connection = "file:./data/users.db"
+# checkInterval = "10s"
+# maxIdleConns = 10
+# maxOpenConns = 10
+# maxLifetime = "1h"
+# logQueries = true
+# logSlowQueries = true
+# logLevel = "debug"
+# logFile = "./logs/database.log"
+
+# [client]
+
+# [client.test]
+# tenant = false
+# nameDatabase = "test"
+# nameSystem = "test"
+# name = "test"
+# lenguage = "es"
+# address = "calle 123"
+# phone = "1234567890"
+# email = "test@test.com.ar"
+# modules = ["auth", "system"]
+# roles = ["admin", "user"]
+# url = "http://localhost:8080"
+
+# [client.test2]
+# tenant = true
+# nameSystem = "test2"
+# name = "test2"
+# lenguage = "es"
+# address = "calle 123"
+# phone = "1234567890"
+# email = "test2@test2.com.ar"
+# modules = ["auth", "system"]
+# roles = ["admin", "user"]
+# url = "http://localhost:8081"
