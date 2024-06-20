@@ -1,5 +1,16 @@
 # PROYECTO B-21
 
+## Cosas que quiero hacer pero no se como explicarlas aca
+
+- [ ] Leer un archivo config de .toml para levantar todo
+- [ ] Hacer un cli de go para levantar todo y que tambien se pueda usar el cli para actualizar los servicios y configuraciones
+- [ ] Todos los servicios tienen que tener un endpoint de salud y metricas de prometheus
+- [ ] Todos los servicios tienen que tener documentacion de swagger la api
+- [ ] Todos los servicios tienen que tener un sistema de logs con zerolog
+- [ ] Todos los servicios tienen que tener una REST API usando Echo y una gRPC API
+- [ ] Hacer un dockerfile para cada servicio con un multi-stage build
+- [ ] Hacer un docker-compose para levantar todo
+
 ## ¿Que es el proyecto B-21?
 
 En la actualidad exactamente no se. Es un proyecto echo en golang que estoy desarrollando para aprender el lenguaje y sus funcionalidades.
