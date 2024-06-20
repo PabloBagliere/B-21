@@ -10,9 +10,13 @@ type healthcheck struct {
 	Status string `json:"status" xml:"status"`
 }
 
-func HealthCheck(e *echo.Echo) {
-	e.GET("/healthcheck", func(c echo.Context) error {
-		status := &healthcheck{Status: "ok"}
-		return c.JSON(http.StatusOK, status)
-	})
+// @Summary Show healthcheck status
+// @Description get healthcheck status
+// @ID get-healthcheck
+// @Produce  json
+// @Success 200 {object} healthcheck
+// @Router /healthcheck [get]
+func HealthCheck(c echo.Context) error {
+	status := &healthcheck{Status: "ok"}
+	return c.JSON(http.StatusOK, status)
 }
