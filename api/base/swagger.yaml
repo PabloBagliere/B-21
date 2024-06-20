@@ -1,0 +1,31 @@
+definitions:
+  router.healthcheck:
+    properties:
+      status:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: pablo.bagliere2@gmail.com
+    name: API Support
+    url: https://github.com/PabloBagliere/B-21/issues
+  license:
+    name: MIT
+    url: https://github.com/PabloBagliere/B-21/licence
+  title: Swagger API Example
+  version: 0.0.1
+paths:
+  /healthcheck:
+    get:
+      description: get healthcheck status
+      operationId: get-healthcheck
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.healthcheck'
+      summary: Show healthcheck status
+swagger: "2.0"
