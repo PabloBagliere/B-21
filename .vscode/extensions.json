@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "humao.rest-client",
+    "golang.go",
+    "ms-azuretools.vscode-docker",
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "tamasfe.even-better-toml"
+  ]
+}
