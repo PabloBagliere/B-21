@@ -1,16 +1,8 @@
 package main
 
 import (
-	"fmt"
-
-	_ "github.com/PabloBagliere/B-21/api/base"
-	"github.com/PabloBagliere/B-21/internal/router"
-	"github.com/PabloBagliere/B-21/pkg/config"
-	"github.com/PabloBagliere/B-21/pkg/logger"
-	"github.com/labstack/echo-contrib/echoprometheus"
-	"github.com/labstack/echo/v4"
+	"github.com/PabloBagliere/B-21/pkg/server"
 	"github.com/rs/zerolog"
-	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
 // @title Swagger API Example
@@ -26,17 +18,6 @@ import (
 
 // @host localhost:8080
 func main() {
-	e := echo.New()
-	e.Use(echoprometheus.NewMiddleware("MyServiceName"))
-	e.Use(logger.MiddlewareLogger("MyServiceName", zerolog.InfoLevel))
-	e.GET("/healthcheck", router.HealthCheck)
-	e.GET("/swagger/*", echoSwagger.WrapHandler)
-	e.GET("/metrics", echoprometheus.NewHandler())
-	p, err := config.GetConfig()
-	if err != nil {
-		e.Logger.Fatal(err)
-	}
-	fmt.Println(p)
+	e := server.NewServer("base", zerolog.InfoLevel)
 	e.Logger.Fatal(e.Start(":8080"))
-
 }
