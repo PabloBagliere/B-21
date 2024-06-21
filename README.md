@@ -2,7 +2,7 @@
 
 ## Cosas que quiero hacer pero no se como explicarlas aca
 
-- [ ] Leer un archivo config de .toml para levantar todo
+- [ ] Leer un archivo config de .yaml para levantar todo
 - [ ] Hacer un cli de go para levantar todo y que tambien se pueda usar el cli para actualizar los servicios y configuraciones
 - [ ] Todos los servicios tienen que tener un endpoint de salud y metricas de prometheus
 - [ ] Todos los servicios tienen que tener documentacion de swagger la api
