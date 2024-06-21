@@ -5,16 +5,10 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v4"
-	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
 
-func MiddlewareLogger(serviceName string, logLevel zerolog.Level) echo.MiddlewareFunc {
-	// Configura el logger global
-	InitLogger(Config{
-		ServiceName: serviceName,
-		LogLevel:    logLevel,
-	})
+func MiddlewareLogger() echo.MiddlewareFunc {
 
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
@@ -59,38 +53,3 @@ func MiddlewareLogger(serviceName string, logLevel zerolog.Level) echo.Middlewar
 		}
 	}
 }
-
-// return middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
-// 	LogURI:    true,
-// 	LogStatus: true,
-// 	LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
-// 		logEvent := log.Info().
-// 			// Str("status", "ok").
-// 			Str("path", v.URI).
-// 			Str("method", c.Request().Method).
-// 			Int64("responseTime", v.Latency.Milliseconds()).
-// 			Int("responseCode", c.Response().Status).
-// 			Int64("responseSize", c.Response().Size).
-// 			Str("responseType", c.Response().Header().Get("Content-Type")).
-// 			Interface("responseHeaders", c.Response().Header()).
-// 			Interface("requestHeaders", c.Request().Header).
-// 			// Str("requestBody", v.RequestBody).
-// 			Interface("params", c.ParamNames()).
-// 			Interface("query", c.QueryParams()).
-// 			Interface("cookies", c.Cookies()).
-// 			Str("ip", c.RealIP()).
-// 			// Str("user", v.UserID).
-// 			Interface("error", v.Error).
-// 			Str("protocol", c.Request().Proto).
-// 			Str("host", c.Request().Host).
-// 			// Str("port", c.Request().URL.Port()).
-// 			Bool("tls", c.Request().TLS != nil)
-
-// 		// if c.Request().TLS != nil {
-// 		// 	logEvent = logEvent.Str("tlsVersion", c.Request().TLS.Version)
-// 		// }
-
-// 		logEvent.Msg("request")
-// 		return nil
-// 	},
-// })
