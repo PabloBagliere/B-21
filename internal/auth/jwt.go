@@ -146,6 +146,7 @@ func CreateResponse() (*response, error) {
 }
 
 func InitJwt(config map[string]interface{}) (bool, error) {
+	resetConfig()
 	p, err := parseConfig(config)
 	if err != nil {
 		return false, err
@@ -154,6 +155,12 @@ func InitJwt(config map[string]interface{}) (bool, error) {
 	duration = p.duration
 	refreshDuration = p.refreshDuration
 	return true, nil
+}
+
+func resetConfig() {
+	secrectKey = ""
+	duration = 0
+	refreshDuration = 0
 }
 
 func parseConfig(p map[string]interface{}) (configAuth, error) {
