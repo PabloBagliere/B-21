@@ -6,15 +6,16 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-// ConfigError is the error type for configuration errors
-type ConfigError struct {
+// ConfigException is the error type for configuration errors
+type ConfigException struct {
 	Message string
+	typeErr string
 	Err     error
 }
 
 // Error returns the error message
-func (e *ConfigError) Error() string {
-	log.Error().Str("type", "CustomError").Err(e.Err).Msg(e.Message)
+func (e *ConfigException) Error() string {
+	log.Error().Str("type", e.typeErr).Err(e.Err).Msg(e.Message)
 	return e.Message
 }
 
@@ -24,11 +25,23 @@ func formatMessage(format string, args ...interface{}) string {
 }
 
 // NewConfigError creates a new ConfigError
-func NewConfigError(message string, err error, args ...interface{}) *ConfigError {
-	return &ConfigError{Message: formatMessage(message, args...), Err: err}
+func NewConfigError(message string, err error, args ...interface{}) *ConfigException {
+	return &ConfigException{Message: formatMessage(message, args...), Err: err, typeErr: "ConfigError"}
 }
 
+// IsConfigError checks if the error is a ConfigError
 func IsConfigError(err error) bool {
-	_, ok := err.(*ConfigError)
+	_, ok := err.(*ConfigException)
+	return ok
+}
+
+// NewJWTError creates a new JWTError
+func NewJWTError(message string, err error, args ...interface{}) *ConfigException {
+	return &ConfigException{Message: formatMessage(message, args...), Err: err, typeErr: "JWTError"}
+}
+
+// IsJWTError checks if the error is a JWTError
+func IsJWTError(err error) bool {
+	_, ok := err.(*ConfigException)
 	return ok
 }
