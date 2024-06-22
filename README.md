@@ -39,3 +39,10 @@ Para probar el proyecto B-21 tienes que ejecutar el comando `go test` nombre de 
 ## ¿Como se documenta el proyecto B-21 en swagger?
 
 Para documentar el proyecto B-21 tienes que ejecutar el comando `swag init` nombre de la carpeta del servicio que quieras documentar. Por ejemplo si quieres documentar el servicio de autenticacion tienes que ejecutar el comando `swag init -g cmd\auth\main.go --output api/auth`. -g es la ruta del archivo principal del servicio y --output es la ruta donde se guardara la documentacion.
+
+## Cosas que agregar algun momento
+
+- Crear un servicio que se encarge de administrar las configuracion ejemplo: aws secret manager, aws parameter store, consul, etcd, vault, etc.
+- Crear un servicio que se encarge de administrar las colas de mensajes ejemplo: aws sqs, aws sns, kafka, rabbitmq, etc.
+- Crear un servicio que se encarge de administrar los archivos ejemplo: aws s3, minio, etc.
+- Crear un servicio que se encarge de administrar los correos electronicos ejemplo: aws ses, sendgrid, mailgun, etc.
